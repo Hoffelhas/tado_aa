@@ -29,8 +29,8 @@ def main():
 
     #Settings
     #--------------------------------------------------
-    username = "your_tado_username" # tado username
-    password = "your_tado_password" # tado password
+    username = os.environ['MY_USER'] # tado username
+    password = os.environ['MY_PASS'] # tado password
 
     checkingInterval = 10.0 # checking interval (in seconds)
     errorRetringInterval = 30.0 # retrying interval (in seconds), in case of an error
