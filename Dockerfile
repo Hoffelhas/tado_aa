@@ -1,9 +1,7 @@
 FROM python3.11
-RUN mkdir /app
-WORKDIR /app
-COPY tado_aa.py /app/tado_aa.py
-COPY requirements.txt /app/requirements.txt
-RUN cd /app
+RUN mkdir /tado_aa
+RUN git clone https://github.com/Hoffelhas/tado_aa /tado_aa
+WORKDIR /tado_aa
+RUN cd /tado_aa
 RUN pip install -r requirements.txt
-EXPOSE 5000
-CMD ["python", "-u", "/code/tado_aa.py"]
+CMD ["python", "-u", "/tado_aa/tado_aa.py"]
