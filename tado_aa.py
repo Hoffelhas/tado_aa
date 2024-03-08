@@ -151,13 +151,14 @@ def engine():
             for z in t.get_zones():
                     zoneID = z["id"]
                     zoneName = z["name"]
-                    if (t.get_open_window_detected(zoneID)["openWindowDetected"] == True):
+                    zoneType = z['type']
+                    if (t.get_open_window_detected(zoneID)["openWindowDetected"] == True) and zoneType == "HEATING":
                         print(zoneName + ": open window detected, activating the OpenWindow mode.")
                         t.set_open_window(zoneID)
                         print("Done!")
                         print("Waiting for a change in devices location or for an open window..")
             #Temp Limit
-                    if (enableTempLimit == True):
+                    if (enableTempLimit == True) and zoneType == "HEATING":
                         if (t.get_state(zoneID)['setting']['power'] == "ON"):
                             setTemp = t.get_state(zoneID)['setting']['temperature']['celsius']
                             currentTemp = t.get_state(zoneID)['sensorDataPoints']['insideTemperature']['celsius']
