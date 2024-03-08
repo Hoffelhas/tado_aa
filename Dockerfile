@@ -1,4 +1,4 @@
-FROM python3.11
+FROM python:3.11
 RUN mkdir /tado_aa
 RUN git clone https://github.com/Hoffelhas/tado_aa /tado_aa
 WORKDIR /tado_aa
