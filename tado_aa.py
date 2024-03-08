@@ -79,7 +79,7 @@ def homeStatus():
 
         for mobileDevice in t.get_mobile_devices():
             if (mobileDevice["settings"]["geoTrackingEnabled"] == True):
-                if (mobileDevice["location"] != None):
+                if (mobileDevice["location"]):
                     if (mobileDevice["location"]["atHome"] == True):
                         devicesHome.append(mobileDevice["name"])
 
