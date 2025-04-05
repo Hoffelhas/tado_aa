@@ -1,0 +1,6 @@
+version: "1"
+services:
+  tado_aa:
+    image: tado_aa:latest
+    container_name: tado_aa
+    restart: unless-stopped
